@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#hero {
+  background-image: url("../images/desktop/image-hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 570px) {
+  #hero {
+    background-image: url("../images/mobile/image-hero.jpg");
+    background-size: center;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply border-2 tracking-widest duration-500 border-black bg-white px-10 py-2 text-center text-black hover:bg-black hover:text-white;
+  }
+}
+
+.item-container {
+  @apply flex flex-col w-full uppercase space-y-7 md:flex-row md:space-y-0 md:space-x-7;
+}
+
+.item {
+  @apply relative overflow-hidden md:w-1/4;
+}
+
+.gradient {
+  @apply absolute right-0 left-0 bottom-0 top-0 bg-gradient-to-b from-transparent to-gray-950 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-50;
+}
+
+.hamburger {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  width: 24px;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg)
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px)
+}
+
+.open .hamburger-middle {
+  display:none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px)
+}
